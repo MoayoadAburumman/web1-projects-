@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Graphics & Media</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f3f4f6; }
+        .navbar { background-color: #2c3e50; overflow: visible; display: flex; direction: ltr; padding-left: 10px; }
+        .navbar a, .dropdown .dropbtn { display: inline-block; color: white; text-align: center; padding: 14px 20px; text-decoration: none; font-size: 16px; font-weight: bold; border: none; outline: none; background-color: inherit; cursor: pointer; transition: 0.3s; }
+        .navbar a:hover, .dropdown:hover .dropbtn { background-color: #34495e; color: #3498db; }
+        .dropdown { position: relative; display: inline-block; }
+        .dropdown-content { display: none; position: absolute; background-color: #34495e; min-width: 260px; box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); z-index: 1; }
+        .dropdown-content a { color: white; padding: 12px 16px; text-decoration: none; display: block; text-align: left; border-bottom: 1px solid #2c3e50; }
+        .dropdown-content a:hover { background-color: #1abc9c; color: white; }
+        .dropdown:hover .dropdown-content { display: block; }
+        .content { padding: 40px; max-width: 1000px; margin: 0 auto; background-color: white; min-height: 80vh; box-shadow: 0 0 10px rgba(0,0,0,0.05); margin-top: 20px; border-radius: 8px; }
+        .lesson-section { display: none; }
+        .lesson-section.active-lesson { display: block; }
+        code { background-color: #f8f9fa; padding: 2px 6px; }
+        .demo-box { border: 1px solid #ccc; padding: 15px; margin-top: 15px; background-color: #fff; border-radius: 4px; }
+        button { background-color: #1abc9c; color: white; border: none; padding: 10px 15px; margin: 5px; cursor: pointer; font-weight: bold; border-radius: 4px; }
+        button:hover { background-color: #16a085; }
+    </style>
+</head>
+<body>
+
+    <div class="navbar">
+        <a href="index.html">Home</a>
+        <div class="dropdown">
+            <button class="dropbtn">HTML ▼</button>
+            <div class="dropdown-content">
+                <a href="html-basics.html">1 - 5: HTML Basics</a>
+                <a href="html-text-styles.html">6 - 10: Headings & Styles</a>
+                <a href="html-colors-links.html">11 - 15: Colors & Links</a>
+                <a href="html-media-tables.html">16 - 20: Images & Tables</a>
+                <a href="html-structural-layouts.html">21 - 25: Block, Inline & Layout</a>
+                <a href="html-responsive-frames.html">26 - 30: Responsive & iFrames</a>
+                <a href="html-scripts-entities.html">31 - 35: JavaScript & Entities</a>
+                <a href="html-forms-advanced.html">36 - 40: Forms & Input Types</a>
+                <a href="html-graphics-media.html">41 - 45: Graphics & Media</a>
+                <a href="html-apis-advanced.html">46 - 52: Web APIs</a>
+            </div>
+        </div>
+        <div class="dropdown"><button class="dropbtn">CSS ▼</button><div class="dropdown-content"><a href="#">CSS Tutorial</a></div></div>
+        <div class="dropdown"><button class="dropbtn">JS ▼</button><div class="dropdown-content"><a href="#">JS Tutorial</a></div></div>
+    </div>
+
+    <div class="content">
+        <h2>HTML Part 9: Canvas, SVG & Media Streams</h2>
+        <button onclick="showTopic('lesson41')">41. HTML Canvas</button>
+        <button onclick="showTopic('lesson42')">42. HTML SVG</button>
+        <button onclick="showTopic('lesson43')">43. HTML Multimedia</button>
+        <button onclick="showTopic('lesson44')">44. HTML Video</button>
+        <button onclick="showTopic('lesson45')">45. HTML Audio</button>
+        <hr>
+
+        <div id="lesson41" class="lesson-section active-lesson">
+            <h1>HTML Canvas Graphics</h1>
+            <p>The HTML <code>&lt;canvas&gt;</code> element is used to draw graphics on the fly via scripting (usually JavaScript).</p>
+            <div class="demo-box">
+                <canvas id="myCanvas" width="200" height="100" style="border:1px solid #000000;"></canvas>
+                <script>
+                    var c = document.getElementById("myCanvas");
+                    var ctx = c.getContext("2d");
+                    ctx.moveTo(0,0);
+                    ctx.lineTo(200,100);
+                    ctx.stroke();
+                </script>
+            </div>
+        </div>
+
+        <div id="lesson42" class="lesson-section">
+            <h1>HTML SVG Graphics</h1>
+            <p>SVG stands for Scalable Vector Graphics. SVG defines vector-based graphics in XML format. It does not lose quality if it is zoomed or resized

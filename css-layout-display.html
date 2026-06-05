@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Layout & Display</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f3f4f6; }
+        .navbar { background-color: #2c3e50; overflow: visible; display: flex; direction: ltr; padding-left: 10px; }
+        .navbar a, .dropdown .dropbtn { display: inline-block; color: white; text-align: center; padding: 14px 20px; text-decoration: none; font-size: 16px; font-weight: bold; border: none; outline: none; background-color: inherit; cursor: pointer; transition: 0.3s; }
+        .navbar a:hover, .dropdown:hover .dropbtn { background-color: #34495e; color: #3498db; }
+        .dropdown { position: relative; display: inline-block; }
+        .dropdown-content { display: none; position: absolute; background-color: #34495e; min-width: 260px; box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); z-index: 1; }
+        .dropdown-content a { color: white; padding: 12px 16px; text-decoration: none; display: block; text-align: left; border-bottom: 1px solid #2c3e50; }
+        .dropdown-content a:hover { background-color: #3498db; color: white; }
+        .dropdown:hover .dropdown-content { display: block; }
+        .content { padding: 40px; max-width: 1000px; margin: 0 auto; background-color: white; min-height: 80vh; box-shadow: 0 0 10px rgba(0,0,0,0.05); margin-top: 20px; border-radius: 8px; }
+        .lesson-section { display: none; }
+        .lesson-section.active-lesson { display: block; }
+        code { background-color: #f8f9fa; padding: 2px 6px; }
+        .demo-box { border: 1px solid #ccc; padding: 15px; margin-top: 15px; background-color: #fff; border-radius: 4px; }
+        button { background-color: #3498db; color: white; border: none; padding: 10px 15px; margin: 5px; cursor: pointer; font-weight: bold; border-radius: 4px; }
+        button:hover { background-color: #2980b9; }
+
+        /* Layout Demo Styles */
+        .table-custom-demo { width: 100%; border-collapse: collapse; }
+        .table-custom-demo th, .table-custom-demo td { border: 1px solid #ddd; padding: 10px; text-align: left; }
+        .table-custom-demo tr:nth-child(even) { background-color: #f2f2f2; }
+        .table-custom-demo th { background-color: #3498db; color: white; }
+        
+        .display-inline-demo { display: inline; background-color: #f1c40f; padding: 5px; font-weight: bold; }
+        
+        .max-width-demo { max-width: 400px; width: 100%; background-color: #e74c3c; color: white; padding: 10px; margin: 0 auto; text-align: center; }
+        
+        .position-sticky-box { position: -webkit-sticky; position: sticky; top: 0; background-color: #2ecc71; color: white; padding: 10px; border: 1px solid #27ae60; text-align: center; font-weight: bold; margin-bottom: 10px; }
+    </style>
+</head>
+<body>
+
+    <div class="navbar">
+        <a href="index.html">Home</a>
+        <div class="dropdown">
+            <button class="dropbtn">HTML ▼</button>
+            <div class="dropdown-content">
+                <a href="html-basics.html">1 - 5: HTML Basics</a>
+                <a href="html-text-styles.html">6 - 10: Headings & Styles</a>
+                <a href="html-colors-links.html">11 - 15: Colors & Links</a>
+                <a href="html-media-tables.html">16 - 20: Images & Tables</a>
+                <a href="html-structural-layouts.html">21 - 25: Block, Inline & Layout</a>
+                <a href="html-responsive-frames.html">26 - 30: Responsive & iFrames</a>
+                <a href="html-scripts-entities.html">31 - 35: JavaScript & Entities</a>
+                <a href="html-forms-advanced.html">36 - 40: Forms & Input Types</a>
+                <a href="html-graphics-media.html">41 - 45: Graphics & Media</a>
+                <a href="html-apis-advanced.html">46 - 52: Web APIs</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <button class="dropbtn">CSS ▼</button>
+            <div class="dropdown-content">
+                <a href="css-basics.html">1 - 5: CSS Basics & Colors</a>
+                <a href="css-box-model.html">6 - 10: CSS Box Model</a>
+                <a href="css-text-fonts.html">11 - 15: CSS Text & Fonts</a>
+                <a href="css-layout-display.html">16 - 20: CSS Layout & Position</a>
+            </div>
+        </div>
+        <div class="dropdown"><button class="dropbtn">JS ▼</button><div class="dropdown-content"><a href="#">JS Topics</a></div></div>
+    </div>
+
+    <div class="content">
+        <h2>CSS Part 4: Layouts, Tables & Position Systems</h2>
+        <button onclick="showTopic('css16')">16. CSS Tables</button>
+        <button onclick="showTopic('css17')">17. CSS Display</button>
+        <button onclick="showTopic('css18')">18. CSS Max-width</button>
+        <button onclick="showTopic('css19')">19. CSS Position</button>
+        <button onclick="showTopic('css20')">20. CSS Z-index</button>
+        <hr>
+
+        <div id="css16" class="lesson-section active-lesson">
+            <h1>CSS Tables Styling</h1>
+            <p>The look of an HTML table can be greatly improved with CSS using <code>border-collapse</code>, setting width/height, applying padding, and adding hover effects or zebra-striping rows.</p>
+            <div class="demo-box">
+                <table class="table-custom-demo">
+                    <tr><th>Topic Name</th><th>Difficulty</th></tr>
+                    <tr><td>CSS Box Model</td><td>Medium</td></tr>
+                    <tr><td>CSS Position</td><td>Hard</td></tr>
+                </table>
+            </div>
+        </div>
+
+        <div id="css17" class="lesson-section">
+            <h1>CSS Display Property</h1>
+            <p>The <code>display</code> property is the most important CSS property for controlling layout. It specifies if/how an element is displayed. Every HTML element has a default display value depending on what type of element it is (e.g., <code>block</code> or <code>inline</code>).</p>
+            <div class="demo-box">
+                <div class="display-inline-demo">Div 1 (Turned Inline)</div>
+                <div class="display-inline-demo">Div 2 (Turned Inline)</div>
+            </div>
+        </div>
+
+        <div id="css18" class="lesson-section">
+            <h1>CSS Max-width Attribute</h1>
+            <p>Using <code>max-width</code> instead of <code>width</code> improves the browser's handling of small windows. This is important when making pages responsive for mobile devices.</p>
+            <div class="demo-box">
+                <div class="max-width-demo">This box has a max-width of 400px. Resize the window to watch it scale safely.</div>
+            </div>
+        </div>
+
+        <div id="css19" class="lesson-section">
+            <h1>CSS Position Property</h1>
+            <p>The <code>position</code> property specifies the type of positioning method used for an element (<code>static</code>, <code>relative</code>, <code>fixed</code>, <code>absolute</code>, or <code>sticky</code>).</p>
+            <div class="demo-box" style="height: 150px; overflow-y: scroll; border: 1px dashed #ccc; padding: 5px;">
+                <div class="position-sticky-box">I am sticky! Scroll inside this box to see me float.</div>
+                <p>Scroll content text...</p>
+                <p>Scroll content text...</p>
+                <p>Scroll content text...</p>
+                <p>Scroll content text...</p>
+            </div>
+        </div>
+
+        <div id="css20" class="lesson-section">
+            <h1>CSS Z-index property</h1>
+            <p>The <code>z-index</code> property specifies the stack order of an element (which element should be placed in front of, or behind, the others). An element can have a positive or negative stack order.</p>
+        </div>
+    </div>
+
+    <script>
+        function showTopic(id) {
+            var el = document.getElementsByClassName('lesson-section');
+            for (var i = 0; i < el.length; i++) el[i].classList.remove('active-lesson');
+            document.getElementById(id).classList.add('active-lesson');
+        }
+    </script>
+</body>
+</html>

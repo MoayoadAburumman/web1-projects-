@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Structural Layouts</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f3f4f6; }
+        .navbar { background-color: #2c3e50; overflow: visible; display: flex; direction: ltr; padding-left: 10px; }
+        .navbar a, .dropdown .dropbtn { display: inline-block; color: white; text-align: center; padding: 14px 20px; text-decoration: none; font-size: 16px; font-weight: bold; border: none; outline: none; background-color: inherit; cursor: pointer; transition: 0.3s; }
+        .navbar a:hover, .dropdown:hover .dropbtn { background-color: #34495e; color: #3498db; }
+        .dropdown { position: relative; display: inline-block; }
+        .dropdown-content { display: none; position: absolute; background-color: #34495e; min-width: 260px; box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); z-index: 1; }
+        .dropdown-content a { color: white; padding: 12px 16px; text-decoration: none; display: block; text-align: left; border-bottom: 1px solid #2c3e50; }
+        .dropdown-content a:hover { background-color: #1abc9c; color: white; }
+        .dropdown:hover .dropdown-content { display: block; }
+        .content { padding: 40px; max-width: 1000px; margin: 0 auto; background-color: white; min-height: 80vh; box-shadow: 0 0 10px rgba(0,0,0,0.05); margin-top: 20px; border-radius: 8px; }
+        .lesson-section { display: none; }
+        .lesson-section.active-lesson { display: block; }
+        code { background-color: #f8f9fa; padding: 2px 6px; }
+        .demo-box { border: 1px solid #ccc; padding: 15px; margin-top: 15px; background-color: #fff; border-radius: 4px; }
+        button { background-color: #1abc9c; color: white; border: none; padding: 10px 15px; margin: 5px; cursor: pointer; font-weight: bold; border-radius: 4px; }
+        button:hover { background-color: #16a085; }
+    </style>
+</head>
+<body>
+
+    <div class="navbar">
+        <a href="index.html">Home</a>
+        <div class="dropdown">
+            <button class="dropbtn">HTML ▼</button>
+            <div class="dropdown-content">
+                <a href="html-basics.html">1 - 5: HTML Basics</a>
+                <a href="html-text-styles.html">6 - 10: Headings & Styles</a>
+                <a href="html-colors-links.html">11 - 15: Colors & Links</a>
+                <a href="html-media-tables.html">16 - 20: Images & Tables</a>
+                <a href="html-structural-layouts.html">21 - 25: Block, Inline & Layout</a>
+                <a href="html-responsive-frames.html">26 - 30: Responsive & iFrames</a>
+                <a href="html-scripts-entities.html">31 - 35: JavaScript & Entities</a>
+                <a href="html-forms-advanced.html">36 - 40: Forms & Input Types</a>
+            </div>
+        </div>
+        <div class="dropdown"><button class="dropbtn">CSS ▼</button><div class="dropdown-content"><a href="#">CSS Tutorial</a></div></div>
+        <div class="dropdown"><button class="dropbtn">JS ▼</button><div class="dropdown-content"><a href="#">JS Tutorial</a></div></div>
+    </div>
+
+    <div class="content">
+        <h2>HTML Part 5: Block, Inline & Structural Layout</h2>
+        <button onclick="showTopic('lesson21')">21. HTML Block & Inline</button>
+        <button onclick="showTopic('lesson22')">22. HTML Div Element</button>
+        <button onclick="showTopic('lesson23')">23. HTML Classes</button>
+        <button onclick="showTopic('lesson24')">24. HTML Id Attribute</button>
+        <button onclick="showTopic('lesson25')">25. HTML Semantic Layout</button>
+        <hr>
+
+        <div id="lesson21" class="lesson-section active-lesson">
+            <h1>HTML Block and Inline Elements</h1>
+            <p>Every HTML element has a default display value depending on what type of element it is. Block-level elements always start on a new line. Inline elements do not start on a new line.</p>
+            <div class="demo-box">
+                <p style="background-color: #e74c3c; color: white; padding: 5px;">This is a block-level paragraph.</p>
+                <span>This is an <a>inline span</a> element inside text.</span>
+            </div>
+        </div>
+
+        <div id="lesson22" class="lesson-section">
+            <h1>HTML Div Element</h1>
+            <p>The <code>&lt;div&gt;</code> element is a block-level container used to group other HTML elements together and style them with CSS.</p>
+            <div class="demo-box">
+                <div style="background-color: #2c3e50; color: white; padding: 20px;">
+                    <h3>Div Heading</h3>
+                    <p>This paragraph is grouped inside a div box.</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="lesson23" class="lesson-section">
+            <h1>HTML Classes</h1>
+            <p>The HTML <code>class</code> attribute is used to specify a class for an HTML element. Multiple elements can share the same class name to inherit the same styles.</p>
+        </div>
+
+        <div id="lesson24" class="lesson-section">
+            <h1>HTML Id Attribute</h1>
+            <p>The HTML <code>id</code> attribute is used to specify a unique id for an HTML element. An id value must be completely unique within the page document.</p>
+        </div>
+
+        <div id="lesson25" class="lesson-section">
+            <h1>HTML Semantic Elements & Layout</h1>
+            <p>Semantic elements clearly describe their meaning to both the browser and the developer (e.g., <code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;section&gt;</code>, <code>&lt;footer&gt;</code>).</p>
+        </div>
+    </div>
+
+    <script>
+        function showTopic(id) {
+            var el = document.getElementsByClassName('lesson-section');
+            for (var i = 0; i < el.length; i++) el[i].classList.remove('active-lesson');
+            document.getElementById(id).classList.add('active-lesson');
+        }
+    </script>
+</body>
+</html>

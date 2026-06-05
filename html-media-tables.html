@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Images, Tables & Lists</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f3f4f6; }
+        .navbar { background-color: #2c3e50; overflow: visible; display: flex; direction: ltr; padding-left: 10px; }
+        .navbar a, .dropdown .dropbtn { display: inline-block; color: white; text-align: center; padding: 14px 20px; text-decoration: none; font-size: 16px; font-weight: bold; border: none; outline: none; background-color: inherit; cursor: pointer; transition: 0.3s; }
+        .navbar a:hover, .dropdown:hover .dropbtn { background-color: #34495e; color: #3498db; }
+        .dropdown { position: relative; display: inline-block; }
+        .dropdown-content { display: none; position: absolute; background-color: #34495e; min-width: 260px; box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); z-index: 1; }
+        .dropdown-content a { color: white; padding: 12px 16px; text-decoration: none; display: block; text-align: left; border-bottom: 1px solid #2c3e50; }
+        .dropdown-content a:hover { background-color: #1abc9c; color: white; }
+        .dropdown:hover .dropdown-content { display: block; }
+        .content { padding: 40px; max-width: 1000px; margin: 0 auto; background-color: white; min-height: 80vh; box-shadow: 0 0 10px rgba(0,0,0,0.05); margin-top: 20px; border-radius: 8px; }
+        .lesson-section { display: none; }
+        .lesson-section.active-lesson { display: block; }
+        pre { background-color: #f8f9fa; padding: 15px; border-left: 4px solid #1abc9c; }
+        code { background-color: #f8f9fa; padding: 2px 6px; }
+        .demo-box { border: 1px solid #ccc; padding: 15px; margin-top: 15px; background-color: #fff; border-radius: 4px; }
+        button { background-color: #1abc9c; color: white; border: none; padding: 10px 15px; margin: 5px; cursor: pointer; font-weight: bold; border-radius: 4px; }
+        button:hover { background-color: #16a085; }
+    </style>
+</head>
+<body>
+
+    <div class="navbar">
+        <a href="index.html">Home</a>
+        <div class="dropdown">
+            <button class="dropbtn">HTML ▼</button>
+            <div class="dropdown-content">
+                <a href="html-basics.html">1 - 5: HTML Basics</a>
+                <a href="html-text-styles.html">6 - 10: Headings & Styles</a>
+                <a href="html-colors-links.html">11 - 15: Colors & Links</a>
+                <a href="html-media-tables.html">16 - 20: Images & Tables</a>
+                <a href="html-structural-layouts.html">21 - 25: Block, Inline & Layout</a>
+                <a href="html-responsive-frames.html">26 - 30: Responsive & iFrames</a>
+                <a href="html-scripts-entities.html">31 - 35: JavaScript & Entities</a>
+                <a href="html-forms-advanced.html">36 - 40: Forms & Input Types</a>
+                <a href="html-graphics-media.html">41 - 45: Graphics & Media</a>
+                <a href="html-apis-advanced.html">46 - 52: Web APIs</a>
+            </div>
+        </div>
+        <div class="dropdown"><button class="dropbtn">CSS ▼</button><div class="dropdown-content"><a href="#">CSS Tutorial</a></div></div>
+        <div class="dropdown"><button class="dropbtn">JS ▼</button><div class="dropdown-content"><a href="#">JS Tutorial</a></div></div>
+    </div>
+
+    <div class="content">
+        <h2>HTML Part 4: Media & Layouts</h2>
+        <button onclick="showTopic('lesson16')">16. HTML Images</button>
+        <button onclick="showTopic('lesson17')">17. HTML Favicon</button>
+        <button onclick="showTopic('lesson18')">18. HTML Page Title</button>
+        <button onclick="showTopic('lesson19')">19. HTML Tables</button>
+        <button onclick="showTopic('lesson20')">20. HTML Lists</button>
+        <hr>
+
+        <div id="lesson16" class="lesson-section active-lesson">
+            <h1>HTML Images</h1>
+            <p>Images can improve the design and the appearance of a web page. Syntax: <code>&lt;img src="url" alt="some_text"&gt;</code></p>
+            <div class="demo-box">
+                <img src="https://www.w3schools.com/html/img_girl.jpg" alt="Girl in a jacket" width="200" height="250">
+            </div>
+        </div>
+
+        <div id="lesson17" class="lesson-section">
+            <h1>HTML Favicon</h1>
+            <p>A favicon is a small image displayed next to the page title in the browser tab. You can use any image you want as your favicon.</p>
+            <pre>
+&lt;link rel="icon" type="image/x-icon" href="/images/favicon.ico"&gt;
+            </pre>
+        </div>
+
+        <div id="lesson18" class="lesson-section">
+            <h1>HTML Page Title</h1>
+            <p>Every HTML document must have a <code>&lt;title&gt;</code> element inside the <code>&lt;head&gt;</code> block. It defines the title of the document, and is shown in the browser's title bar or page tab.</p>
+        </div>
+
+        <div id="lesson19" class="lesson-section">
+            <h1>HTML Tables</h1>
+            <p>HTML tables allow web developers to arrange data into rows and columns using <code>&lt;table&gt;</code>, <code>&lt;tr&gt;</code>, <code>&lt;th&gt;</code>, and <code>&lt;td&gt;</code>.</p>
+            <div class="demo-box">
+                <table style="width:100%; border: 1px solid black; border-collapse: collapse;">
+                    <tr style="background-color: #f2f2f2;">
+                        <th style="border: 1px solid black; padding: 8px;">Firstname</th>
+                        <th style="border: 1px solid black; padding: 8px;">Lastname</th>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid black; padding: 8px;">Jill</td>
+                        <td style="border: 1px solid black; padding: 8px;">Smith</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div id="lesson20" class="lesson-section">
+            <h1>HTML Lists</h1>
+            <p>HTML lists allow web developers to group a set of related items in lists. Unordered lists use <code>&lt;ul&gt;</code> and ordered lists use <code>&lt;ol&gt;</code>.</p>
+            <div class="demo-box">
+                <ul>
+                    <li>An item in an unordered list</li>
+                    <li>Another item</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showTopic(id) {
+            var el = document.getElementsByClassName('lesson-section');
+            for (var i = 0; i < el.length; i++) el[i].classList.remove('active-lesson');
+            document.getElementById(id).classList.add('active-lesson');
+        }
+    </script>
+</body>
+</html>

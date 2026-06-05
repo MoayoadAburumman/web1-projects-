@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Numbers & Arrays</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f3f4f6; }
+        .navbar { background-color: #2c3e50; overflow: visible; display: flex; direction: ltr; padding-left: 10px; }
+        .navbar a, .dropdown .dropbtn { display: inline-block; color: white; text-align: center; padding: 14px 20px; text-decoration: none; font-size: 16px; font-weight: bold; border: none; outline: none; background-color: inherit; cursor: pointer; transition: 0.3s; }
+        .navbar a:hover, .dropdown:hover .dropbtn { background-color: #34495e; color: #f1c40f; }
+        .dropdown { position: relative; display: inline-block; }
+        .dropdown-content { display: none; position: absolute; background-color: #34495e; min-width: 260px; box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); z-index: 1; }
+        .dropdown-content a { color: white; padding: 12px 16px; text-decoration: none; display: block; text-align: left; border-bottom: 1px solid #2c3e50; }
+        .dropdown-content a:hover { background-color: #f1c40f; color: black; }
+        .dropdown:hover .dropdown-content { display: block; }
+        .content { padding: 40px; max-width: 1000px; margin: 0 auto; background-color: white; min-height: 80vh; box-shadow: 0 0 10px rgba(0,0,0,0.05); margin-top: 20px; border-radius: 8px; }
+        .lesson-section { display: none; }
+        .lesson-section.active-lesson { display: block; }
+        code { background-color: #f8f9fa; padding: 2px 6px; }
+        .demo-box { border: 1px solid #ccc; padding: 15px; margin-top: 15px; background-color: #fff; border-radius: 4px; }
+        button { background-color: #f1c40f; color: black; border: none; padding: 10px 15px; margin: 5px; cursor: pointer; font-weight: bold; border-radius: 4px; }
+        button:hover { background-color: #d4ac0d; }
+        .action-btn { background-color: #2c3e50; color: white; }
+    </style>
+</head>
+<body>
+
+    <div class="navbar">
+        <a href="index.html">Home</a>
+        <div class="dropdown">
+            <button class="dropbtn">HTML ▼</button>
+            <div class="dropdown-content">
+                <a href="html-basics.html">1 - 5: HTML Basics</a>
+                <a href="html-text-styles.html">6 - 10: Headings & Styles</a>
+                <a href="html-colors-links.html">11 - 15: Colors & Links</a>
+                <a href="html-media-tables.html">16 - 20: Images & Tables</a>
+                <a href="html-structural-layouts.html">21 - 25: Block, Inline & Layout</a>
+                <a href="html-responsive-frames.html">26 - 30: Responsive & iFrames</a>
+                <a href="html-scripts-entities.html">31 - 35: JavaScript & Entities</a>
+                <a href="html-forms-advanced.html">36 - 40: Forms & Input Types</a>
+                <a href="html-graphics-media.html">41 - 45: Graphics & Media</a>
+                <a href="html-apis-advanced.html">46 - 52: Web APIs</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <button class="dropbtn">CSS ▼</button>
+            <div class="dropdown-content">
+                <a href="css-basics.html">1 - 5: CSS Basics & Colors</a>
+                <a href="css-box-model.html">6 - 10: CSS Box Model</a>
+                <a href="css-text-fonts.html">11 - 15: CSS Text & Fonts</a>
+                <a href="css-layout-display.html">16 - 20: CSS Layout & Position</a>
+                <a href="css-overflow-float.html">21 - 25: Overflow & Float</a>
+                <a href="css-advanced-selectors.html">26 - 30: Advanced Selectors</a>
+                <a href="css-nav-dropdowns.html">31 - 35: Navbars & Dropdowns</a>
+                <a href="css-advanced-forms.html">36 - 40: Advanced Forms & Layouts</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <button class="dropbtn">JS ▼</button>
+            <div class="dropdown-content">
+                <a href="js-basics.html">1 - 5: JS Basics & Outputs</a>
+                <a href="js-variables.html">6 - 10: Variables & Data Types</a>
+                <a href="js-functions-objects.html">11 - 15: Functions & Objects</a>
+                <a href="js-numbers-arrays.html">16 - 20: Numbers & Arrays</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="content">
+        <h2>JavaScript Part 4: Arithmetic Data Elements</h2>
+        <button onclick="showTopic('js16')">16. JS Numbers</button>
+        <button onclick="showTopic('js17')">17. JS Number Methods</button>
+        <button onclick="showTopic('js18')">18. JS Arrays</button>
+        <button onclick="showTopic('js19')">19. JS Array Methods</button>
+        <button onclick="showTopic('js20')">20. JS Array Sort</button>
+        <hr>
+
+        <div id="js16" class="lesson-section active-lesson">
+            <h1>JS Numbers</h1>
+            <p>JavaScript has only one type of number. Numbers can be written with, or without, decimals (e.g., 34.00 or 34).</p>
+        </div>
+
+        <div id="js17" class="lesson-section">
+            <h1>JS Number Methods</h1>
+            <p>Number methods help you work with numbers. Key methods include <code>toString()</code>, <code>toExponential()</code>, and <code>toFixed()</code>.</p>
+        </div>
+
+        <div id="js18" class="lesson-section">
+            <h1>JS Arrays</h1>
+            <p>An array is a special variable, which can hold more than one value at a time. Array indexes start with 0.</p>
+            <div class="demo-box">
+                <p id="array-demo">Click to parse array element index.</p>
+                <button class="action-btn" onclick="getArrayItem()">Fetch First Index</button>
+            </div>
+        </div>
+
+        <div id="js19" class="lesson-section">
+            <h1>JS Array Methods</h1>
+            <p>Array methods like <code>push()</code>, <code>pop()</code>, <code>shift()</code>, and <code>join()</code> make it easy to manipulate arrays.</p>
+        </div>
+
+        <div id="js20" class="lesson-section">
+            <h1>JS Array Sorting Engines</h1>
+            <p>The <code>sort()</code> method sorts an array alphabetically. For numbers, you need to use a custom compare function.</p>
+            <div class="demo-box">
+                <p id="sort-demo">Fruits: Banana, Orange, Apple, Mango</p>
+                <button class="action-btn" onclick="sortFruits()">Sort Alphabetically</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showTopic(id) {
+            var el = document.getElementsByClassName('lesson-section');
+            for (var i = 0; i < el.length; i++) el[i].classList.remove('active-lesson');
+            document.getElementById(id).classList.add('active-lesson');
+        }
+
+        function getArrayItem() {
+            const cars = ["Saab", "Volvo", "BMW"];
+            document.getElementById('array-demo').innerHTML = "First item in array is: " + cars[0];
+        }
+
+        function sortFruits() {
+            const fruits = ["Banana", "Orange", "Apple", "Mango"];
+            fruits.sort();
+            document.getElementById('sort-demo').innerHTML = "Sorted: " + fruits.join(", ");
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Forms & Inputs</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f3f4f6; }
+        .navbar { background-color: #2c3e50; overflow: visible; display: flex; direction: ltr; padding-left: 10px; }
+        .navbar a, .dropdown .dropbtn { display: inline-block; color: white; text-align: center; padding: 14px 20px; text-decoration: none; font-size: 16px; font-weight: bold; border: none; outline: none; background-color: inherit; cursor: pointer; transition: 0.3s; }
+        .navbar a:hover, .dropdown:hover .dropbtn { background-color: #34495e; color: #3498db; }
+        .dropdown { position: relative; display: inline-block; }
+        .dropdown-content { display: none; position: absolute; background-color: #34495e; min-width: 260px; box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); z-index: 1; }
+        .dropdown-content a { color: white; padding: 12px 16px; text-decoration: none; display: block; text-align: left; border-bottom: 1px solid #2c3e50; }
+        .dropdown-content a:hover { background-color: #1abc9c; color: white; }
+        .dropdown:hover .dropdown-content { display: block; }
+        .content { padding: 40px; max-width: 1000px; margin: 0 auto; background-color: white; min-height: 80vh; box-shadow: 0 0 10px rgba(0,0,0,0.05); margin-top: 20px; border-radius: 8px; }
+        .lesson-section { display: none; }
+        .lesson-section.active-lesson { display: block; }
+        code { background-color: #f8f9fa; padding: 2px 6px; }
+        .demo-box { border: 1px solid #ccc; padding: 15px; margin-top: 15px; background-color: #fff; border-radius: 4px; }
+        button { background-color: #1abc9c; color: white; border: none; padding: 10px 15px; margin: 5px; cursor: pointer; font-weight: bold; border-radius: 4px; }
+        button:hover { background-color: #16a085; }
+    </style>
+</head>
+<body>
+
+    <div class="navbar">
+        <a href="index.html">Home</a>
+        <div class="dropdown">
+            <button class="dropbtn">HTML ▼</button>
+            <div class="dropdown-content">
+                <a href="html-basics.html">1 - 5: HTML Basics</a>
+                <a href="html-text-styles.html">6 - 10: Headings & Styles</a>
+                <a href="html-colors-links.html">11 - 15: Colors & Links</a>
+                <a href="html-media-tables.html">16 - 20: Images & Tables</a>
+                <a href="html-structural-layouts.html">21 - 25: Block, Inline & Layout</a>
+                <a href="html-responsive-frames.html">26 - 30: Responsive & iFrames</a>
+                <a href="html-scripts-entities.html">31 - 35: JavaScript & Entities</a>
+                <a href="html-forms-advanced.html">36 - 40: Forms & Input Types</a>
+            </div>
+        </div>
+        <div class="dropdown"><button class="dropbtn">CSS ▼</button><div class="dropdown-content"><a href="#">CSS Tutorial</a></div></div>
+        <div class="dropdown"><button class="dropbtn">JS ▼</button><div class="dropdown-content"><a href="#">JS Tutorial</a></div></div>
+    </div>
+
+    <div class="content">
+        <h2>HTML Part 8: Forms Interactivity & Input System</h2>
+        <button onclick="showTopic('lesson36')">36. HTML Forms</button>
+        <button onclick="showTopic('lesson37')">37. HTML Form Attributes</button>
+        <button onclick="showTopic('lesson38')">38. HTML Form Elements</button>
+        <button onclick="showTopic('lesson39')">39. HTML Input Types</button>
+        <button onclick="showTopic('lesson40')">40. HTML Input Attributes</button>
+        <hr>
+
+        <div id="lesson36" class="lesson-section active-lesson">
+            <h1>HTML Forms</h1>
+            <p>An HTML form is used to collect user data input. The input is then sent to a remote web server for database management processing.</p>
+            <div class="demo-box">
+                <form action="#">
+                    <label for="fname">First name:</label><br>
+                    <input type="text" id="fname" name="fname" value="John"><br>
+                    <label for="lname">Last name:</label><br>
+                    <input type="text" id="lname" name="lname" value="Doe">
+                </form>
+            </div>
+        </div>
+
+        <div id="lesson37" class="lesson-section">
+            <h1>HTML Form Attributes</h1>
+            <p>The <code>action</code> attribute defines the action to be performed when the form is submitted. The <code>method</code> attribute specifies the HTTP method (GET or POST).</p>
+        </div>
+
+        <div id="lesson38" class="lesson-section">
+            <h1>HTML Form Elements</h1>
+            <p>HTML forms can contain various interaction components like <code>&lt;input&gt;</code>, <code>&lt;label&gt;</code>, <code>&lt;select&gt;</code>, <code>&lt;textarea&gt;</code>, and <code>&lt;button&gt;</code>.</p>
+            <div class="demo-box">
+                <select name="cars">
+                    <option value="volvo">Volvo</option>
+                    <option value="saab">Saab</option>
+                </select>
+            </div>
+        </div>
+
+        <div id="lesson39" class="lesson-section">
+            <h1>HTML Input Types</h1>
+            <p>HTML contains many input field types depending on data needs, such as <code>type="password"</code>, <code>type="checkbox"</code>, <code>type="radio"</code>, and <code>type="color"</code>.</p>
+            <div class="demo-box">
+                <input type="radio" id="html" name="fav_language" value="HTML">
+                <label for="html">HTML</label><br>
+                <input type="color" name="favcolor" value="#1abc9c"> Select Color
+            </div>
+        </div>
+
+        <div id="lesson40" class="lesson-section">
+            <h1>HTML Input Attributes</h1>
+            <p>HTML inputs have attributes like <code>value</code>, <code>readonly</code>, <code>disabled</code>, <code>maxlength</code>, and <code>required</code> to control behaviors.</p>
+        </div>
+    </div>
+
+    <script>
+        function showTopic(id) {
+            var el = document.getElementsByClassName('lesson-section');
+            for (var i = 0; i < el.length; i++) el[i].classList.remove('active-lesson');
+            document.getElementById(id).classList.add('active-lesson');
+        }
+    </script>
+</body>
+</html>

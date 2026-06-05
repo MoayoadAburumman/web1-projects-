@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Basics & Elements</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f3f4f6; }
+        .navbar { background-color: #2c3e50; overflow: visible; display: flex; direction: ltr; padding-left: 10px; }
+        .navbar a, .dropdown .dropbtn { display: inline-block; color: white; text-align: center; padding: 14px 20px; text-decoration: none; font-size: 16px; font-weight: bold; border: none; outline: none; background-color: inherit; cursor: pointer; transition: 0.3s; }
+        .navbar a:hover, .dropdown:hover .dropbtn { background-color: #34495e; color: #3498db; }
+        .dropdown { position: relative; display: inline-block; }
+        .dropdown-content { display: none; position: absolute; background-color: #34495e; min-width: 260px; box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); z-index: 1; }
+        .dropdown-content a { color: white; padding: 12px 16px; text-decoration: none; display: block; text-align: left; border-bottom: 1px solid #2c3e50; }
+        .dropdown-content a:hover { background-color: #1abc9c; color: white; }
+        .dropdown:hover .dropdown-content { display: block; }
+        .content { padding: 40px; max-width: 1000px; margin: 0 auto; background-color: white; min-height: 80vh; box-shadow: 0 0 10px rgba(0,0,0,0.05); margin-top: 20px; border-radius: 8px; }
+        .lesson-section { display: none; }
+        .lesson-section.active-lesson { display: block; }
+        pre { background-color: #f8f9fa; padding: 15px; border-left: 4px solid #1abc9c; overflow-x: auto; }
+        code { background-color: #f8f9fa; padding: 2px 6px; }
+        .demo-box { border: 1px solid #ccc; padding: 15px; margin-top: 15px; background-color: #fff; border-radius: 4px; }
+        button { background-color: #1abc9c; color: white; border: none; padding: 10px 15px; margin: 5px; cursor: pointer; font-weight: bold; border-radius: 4px; }
+        button:hover { background-color: #16a085; }
+    </style>
+</head>
+<body>
+
+    <div class="navbar">
+        <a href="index.html">Home</a>
+        <div class="dropdown">
+            <button class="dropbtn">HTML ▼</button>
+            <div class="dropdown-content">
+                <a href="html-basics.html">1 - 5: HTML Basics</a>
+                <a href="html-text-styles.html">6 - 10: Headings & Styles</a>
+                <a href="html-colors-links.html">11 - 15: Colors & Links</a>
+                <a href="html-media-tables.html">16 - 20: Images & Tables</a>
+                <a href="html-structural-layouts.html">21 - 25: Block, Inline & Layout</a>
+                <a href="html-responsive-frames.html">26 - 30: Responsive & iFrames</a>
+                <a href="html-scripts-entities.html">31 - 35: JavaScript & Entities</a>
+                <a href="html-forms-advanced.html">36 - 40: Forms & Input Types</a>
+                <a href="html-graphics-media.html">41 - 45: Graphics & Media</a>
+                <a href="html-apis-advanced.html">46 - 52: Web APIs</a>
+            </div>
+        </div>
+        <div class="dropdown"><button class="dropbtn">CSS ▼</button><div class="dropdown-content"><a href="#">CSS Tutorial</a></div></div>
+        <div class="dropdown"><button class="dropbtn">JS ▼</button><div class="dropdown-content"><a href="#">JS Tutorial</a></div></div>
+    </div>
+
+    <div class="content">
+        <h2>HTML Part 1: Basics & Structures</h2>
+        <button onclick="showTopic('lesson1')">1. HTML HOME</button>
+        <button onclick="showTopic('lesson2')">2. HTML Introduction</button>
+        <button onclick="showTopic('lesson3')">3. HTML Editors</button>
+        <button onclick="showTopic('lesson4')">4. HTML Basic</button>
+        <button onclick="showTopic('lesson5')">5. HTML Elements</button>
+        <hr>
+
+        <div id="lesson1" class="lesson-section active-lesson">
+            <h1>HTML HOME</h1>
+            <p>HTML is the standard markup language for Web pages. With HTML you can create your own Website. HTML is easy to learn - You will enjoy it!</p>
+        </div>
+
+        <div id="lesson2" class="lesson-section">
+            <h1>HTML Introduction</h1>
+            <p>HTML stands for HyperText Markup Language. It describes the structure of a Web page and consists of a series of elements which tell the browser how to display the content.</p>
+            <pre>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;Page Title&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;h1&gt;My First Heading&lt;/h1&gt;
+&lt;p&gt;My First Paragraph.&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+            </pre>
+        </div>
+
+        <div id="lesson3" class="lesson-section">
+            <h1>HTML Editors</h1>
+            <p>A simple text editor is all you need to learn HTML. Web pages can be created and modified by using professional HTML editors. However, for learning HTML we recommend Notepad (PC) or TextEdit (Mac).</p>
+        </div>
+
+        <div id="lesson4" class="lesson-section">
+            <h1>HTML Basic Examples</h1>
+            <p>All HTML documents must start with a document type declaration: <code>&lt;!DOCTYPE html&gt;</code>.</p>
+            <div class="demo-box">
+                <h1>This is a Basic Heading</h1>
+                <p>This is a basic paragraph.</p>
+            </div>
+        </div>
+
+        <div id="lesson5" class="lesson-section">
+            <h1>HTML Elements</h1>
+            <p>An HTML element is defined by a start tag, some content, and an end tag: <code>&lt;tagname&gt; Content goes here... &lt;/tagname&gt;</code></p>
+            <p>HTML elements can be nested, meaning elements can contain other elements.</p>
+        </div>
+    </div>
+
+    <script>
+        function showTopic(id) {
+            var el = document.getElementsByClassName('lesson-section');
+            for (var i = 0; i < el.length; i++) el[i].classList.remove('active-lesson');
+            document.getElementById(id).classList.add('active-lesson');
+        }
+    </script>
+</body>
+</html>
