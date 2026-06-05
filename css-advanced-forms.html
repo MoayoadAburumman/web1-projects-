@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Advanced Layouts</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f3f4f6; }
+        .navbar { background-color: #2c3e50; overflow: visible; display: flex; direction: ltr; padding-left: 10px; }
+        .navbar a, .dropdown .dropbtn { display: inline-block; color: white; text-align: center; padding: 14px 20px; text-decoration: none; font-size: 16px; font-weight: bold; border: none; outline: none; background-color: inherit; cursor: pointer; transition: 0.3s; }
+        .navbar a:hover, .dropdown:hover .dropbtn { background-color: #34495e; color: #3498db; }
+        .dropdown { position: relative; display: inline-block; }
+        .dropdown-content { display: none; position: absolute; background-color: #34495e; min-width: 260px; box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); z-index: 1; }
+        .dropdown-content a { color: white; padding: 12px 16px; text-decoration: none; display: block; text-align: left; border-bottom: 1px solid #2c3e50; }
+        .dropdown-content a:hover { background-color: #3498db; color: white; }
+        .dropdown:hover .dropdown-content { display: block; }
+        .content { padding: 40px; max-width: 1000px; margin: 0 auto; background-color: white; min-height: 80vh; box-shadow: 0 0 10px rgba(0,0,0,0.05); margin-top: 20px; border-radius: 8px; }
+        .lesson-section { display: none; }
+        .lesson-section.active-lesson { display: block; }
+        code { background-color: #f8f9fa; padding: 2px 6px; }
+        .demo-box { border: 1px solid #ccc; padding: 15px; margin-top: 15px; background-color: #fff; border-radius: 4px; }
+        button { background-color: #3498db; color: white; border: none; padding: 10px 15px; margin: 5px; cursor: pointer; font-weight: bold; border-radius: 4px; }
+        button:hover { background-color: #2980b9; }
+
+        /* Attribute Selector Demo */
+        input[type="text"] { width: 100%; padding: 8px; margin: 5px 0; box-sizing: border-box; border: 2px solid #3498db; border-radius: 4px; }
+        
+        /* Counter Demo */
+        body { counter-reset: section; }
+        .counter-demo::before { counter-increment: section; content: "Topic " counter(section) ": "; font-weight: bold; color: #e74c3c; }
+    </style>
+</head>
+<body>
+
+    <div class="navbar">
+        <a href="index.html">Home</a>
+        <div class="dropdown">
+            <button class="dropbtn">HTML ▼</button>
+            <div class="dropdown-content">
+                <a href="html-basics.html">1 - 5: HTML Basics</a>
+                <a href="html-text-styles.html">6 - 10: Headings & Styles</a>
+                <a href="html-colors-links.html">11 - 15: Colors & Links</a>
+                <a href="html-media-tables.html">16 - 20: Images & Tables</a>
+                <a href="html-structural-layouts.html">21 - 25: Block, Inline & Layout</a>
+                <a href="html-responsive-frames.html">26 - 30: Responsive & iFrames</a>
+                <a href="html-scripts-entities.html">31 - 35: JavaScript & Entities</a>
+                <a href="html-forms-advanced.html">36 - 40: Forms & Input Types</a>
+                <a href="html-graphics-media.html">41 - 45: Graphics & Media</a>
+                <a href="html-apis-advanced.html">46 - 52: Web APIs</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <button class="dropbtn">CSS ▼</button>
+            <div class="dropdown-content">
+                <a href="css-basics.html">1 - 5: CSS Basics & Colors</a>
+                <a href="css-box-model.html">6 - 10: CSS Box Model</a>
+                <a href="css-text-fonts.html">11 - 15: CSS Text & Fonts</a>
+                <a href="css-layout-display.html">16 - 20: CSS Layout & Position</a>
+                <a href="css-overflow-float.html">21 - 25: Overflow & Float</a>
+                <a href="css-advanced-selectors.html">26 - 30: Advanced Selectors</a>
+                <a href="css-nav-dropdowns.html">31 - 35: Navbars & Dropdowns</a>
+                <a href="css-advanced-forms.html">36 - 40: Advanced Forms & Layouts</a>
+            </div>
+        </div>
+        <div class="dropdown"><button class="dropbtn">JS ▼</button><div class="dropdown-content"><a href="#">JS Topics</a></div></div>
+    </div>
+
+    <div class="content">
+        <h2>CSS Part 8: Advanced Attribute Queries & Forms</h2>
+        <button onclick="showTopic('css36')">36. CSS Attribute Selectors</button>
+        <button onclick="showTopic('css37')">37. CSS Forms</button>
+        <button onclick="showTopic('css38')">38. CSS Counters</button>
+        <button onclick="showTopic('css39')">39. CSS Website Layout</button>
+        <hr>
+
+        <div id="css36" class="lesson-section active-lesson">
+            <h1>CSS Attribute Selectors</h1>
+            <p>It is possible to style HTML elements that have specific attributes or attribute values using syntax like <code>[attribute="value"]</code>.</p>
+            <div class="demo-box">
+                <label>This input is targeted via <code>input[type="text"]</code>:</label>
+                <input type="text" value="Styled text input field">
+            </div>
+        </div>
+
+        <div id="css37" class="lesson-section">
+            <h1>CSS Styling Forms</h1>
+            <p>The look of an HTML form can be greatly improved with CSS properties like width, padding, customized margins, borders, background colors, and focusing highlights (<code>:focus</code>).</p>
+        </div>
+
+        <div id="css38" class="lesson-section">
+            <h1>CSS Automatic Counters</h1>
+            <p>CSS counters are "variables" maintained by CSS whose values can be incremented by CSS rules (to track how many times they are used). Properties include: <code>counter-reset</code> and <code>counter-increment</code>.</p>
+            <div class="demo-box">
+                <p class="counter-demo">CSS Variables Element</p>
+                <p class="counter-demo">Automatic Enumeration Layout</p>
+            </div>
+        </div>
+
+        <div id="css39" class="lesson-section">
+            <h1>CSS Website Layout Architectural Models</h1>
+            <p>A website layout is often divided into headers, menus, content, and a footer. There are different layout architectures using floats, flexbox, or grid engines to safely frame global sites.</p>
+        </div>
+    </div>
+
+    <script>
+        function showTopic(id) {
+            var el = document.getElementsByClassName('lesson-section');
+            for (var i = 0; i < el.length; i++) el[i].classList.remove('active-lesson');
+            document.getElementById(id).classList.add('active-lesson');
+        }
+    </script>
+</body>
+</html>
